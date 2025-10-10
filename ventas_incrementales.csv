@@ -1,0 +1,5 @@
+venta_id,cliente,producto,categoria,precio_unitario,unidades,fecha
+5,Pedro,Monitor,Electrónica,650.0,1,2023-01-15
+21,Nora,Cámara,Electrónica,350.0,1,2023-01-16
+22,Andrés,Lámpara,Accesorios,40.0,2,2023-01-16
+23,Leo,Lámpara,Accesorios,40.0,2,2023-01-16
