@@ -60,3 +60,18 @@ with engine.begin() as conn:
     for i in range(0, len(records), batch):
         conn.execute(upsert_sql, records[i:i+batch])
 print(f"UPSERT aplicado. Filas procesadas: {len(dfinc)}")
+
+allrows = pd.read_sql("SELECT * FROM ventas ORDER BY ventaid", con=engine)
+print(allrows.head(10))
+print(allrows.tail(10))
+print("Total registros:", len(allrows))
+top5 = pd.read_sql("""
+    SELECT producto, SUM(preciounitario * unidades) AS total
+    FROM ventas
+    GROUP BY producto
+    ORDER BY total DESC
+    LIMIT 5
+""", con=engine)
+print("Top 5 productos por total vendido")
+print(top5)
+
